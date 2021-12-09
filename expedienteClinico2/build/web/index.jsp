@@ -1,10 +1,14 @@
+<%-- 
+    Document   : index
+    Created on : Dec 8, 2021, 10:41:57 PM
+    Author     : Roberto
+--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="es">
-    
+<html>
     <head>
-        
-        <meta charset="utf-8">
-        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title> Login del IMSS </title>    
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,11 +30,8 @@
         <script type="text/javascript">
 
         </script>
-        
     </head>
-    
     <body>
-        
         <div id="contenedor">
             <div id="central">
                 <div id="login">
@@ -44,12 +45,11 @@
                     </form>
                     <div class="pie-form">
                         <a href="#">¿Perdiste tu contraseña?</a>
-                        <a href="registrarse.html">¿No tienes Cuenta? Registrate</a>
+                        <a href="registrarse.jsp">¿No tienes Cuenta? Registrate</a>
                         
                     </div>
                 </div>
             </div>
         </div>
-            
     </body>
 </html>

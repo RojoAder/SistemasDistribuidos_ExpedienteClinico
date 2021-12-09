@@ -19,6 +19,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import Controladores.UsuariosJpaController;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpSession;
 /**
  *
  * @author Armando
@@ -39,6 +41,11 @@ public class registrarUsuario extends HttpServlet {
             throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            
+            HttpSession session = request.getSession();
+            RequestDispatcher rd;
+            
+//            RequestDispatcher rd;
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -52,21 +59,23 @@ public class registrarUsuario extends HttpServlet {
             
             UsuariosJpaController usuariosC = new UsuariosJpaController();
             
-            String nombre = request.getParameter("");
-            String apellido = request.getParameter("");
-            String correo = request.getParameter("");
-            String fecha = request.getParameter("");
-            String rol = request.getParameter("");
-            String contra = request.getParameter("");
+            String nombre = request.getParameter("nombres");
+            String apellido = request.getParameter("apellidos");
+            String correo = request.getParameter("correo");
+            String fecha = request.getParameter("fechaN");
+            String rol = request.getParameter("rol");
+            String contra = request.getParameter("password");
             
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
             Date fechaPars = formato.parse(fecha);
+            
+             rd = request.getRequestDispatcher("index.jsp");
             try{
                 Usuarios u = new Usuarios(nombre, apellido, fechaPars, contra, rol,correo);
                 usuariosC.create(u);
-                response.sendRedirect("inicio.html");
+                rd.forward(request, response);
             }catch(Exception e){
-                response.sendRedirect("registrarse.html");
+                response.sendRedirect("registrarse.jsp");
             }
             
         

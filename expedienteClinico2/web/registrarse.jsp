@@ -1,10 +1,14 @@
+<%-- 
+    Document   : registrarse
+    Created on : Dec 8, 2021, 10:40:52 PM
+    Author     : Roberto
+--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="es">
-    
+<html>
     <head>
-        
-        <meta charset="utf-8">
-        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title> Registro del IMSS </title>    
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,18 +30,16 @@
         <script type="text/javascript">     
             
         </script>
-        
     </head>
-    
     <body>
-        
+         
         <div id="contenedor">
             <div id="central"> 
                 <div id="login">
                     <div class="titulo">
                         Bienvenido a Registrarse
                     </div>
-                    <form id="loginform">
+                    <form enctype="text/plain" id="loginform" action="registrarUsuario" method="post">
                         <input type="text" name="nombres" placeholder="Nombres" required>
                         <input type="text" placeholder="Apellidos" name="apellidos" required> 
                         <input type="text" name="correo" placeholder="Correo" required>
@@ -52,10 +54,9 @@
                     </form>
                 </div>
                 <div class="inferior">
-                    <a href="index.html">Volver</a>
+                    <a href="index.jsp">Volver</a>
                 </div>
             </div>
         </div>
-            
     </body>
 </html>

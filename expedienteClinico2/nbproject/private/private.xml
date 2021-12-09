@@ -5,10 +5,12 @@
         <group>
             <file>file:/C:/Users/Roberto/Documents/GitHub/SistemasDistribuidos_ExpedienteClinico/expedienteClinico2/web/inicio.html</file>
             <file>file:/C:/Users/Roberto/Documents/GitHub/SistemasDistribuidos_ExpedienteClinico/expedienteClinico2/web/buscarExpediente.html</file>
+            <file>file:/C:/Users/Roberto/Documents/GitHub/SistemasDistribuidos_ExpedienteClinico/expedienteClinico2/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Roberto/Documents/GitHub/SistemasDistribuidos_ExpedienteClinico/expedienteClinico2/web/index.jsp</file>
             <file>file:/C:/Users/Roberto/Documents/GitHub/SistemasDistribuidos_ExpedienteClinico/expedienteClinico2/src/ManagedBeans/Obtener.java</file>
             <file>file:/C:/Users/Roberto/Documents/GitHub/SistemasDistribuidos_ExpedienteClinico/expedienteClinico2/src/servlets/registrarUsuario.java</file>
-            <file>file:/C:/Users/Roberto/Documents/GitHub/SistemasDistribuidos_ExpedienteClinico/expedienteClinico2/web/index.html</file>
-            <file>file:/C:/Users/Roberto/Documents/GitHub/SistemasDistribuidos_ExpedienteClinico/expedienteClinico2/web/registrarse.html</file>
+            <file>file:/C:/Users/Roberto/Documents/GitHub/SistemasDistribuidos_ExpedienteClinico/expedienteClinico2/web/registrarse.jsp</file>
+            <file>file:/C:/Users/Roberto/Documents/GitHub/SistemasDistribuidos_ExpedienteClinico/expedienteClinico2/src/conf/MANIFEST.MF</file>
         </group>
     </open-files>
 </project-private>
