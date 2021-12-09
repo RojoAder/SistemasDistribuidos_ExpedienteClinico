@@ -18,7 +18,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import Controladores.UsuariosJpaController;
 /**
  *
  * @author Armando
@@ -50,6 +50,8 @@ public class registrarUsuario extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
             
+            UsuariosJpaController usuariosC = new UsuariosJpaController();
+            
             String nombre = request.getParameter("");
             String apellido = request.getParameter("");
             String correo = request.getParameter("");
@@ -61,6 +63,7 @@ public class registrarUsuario extends HttpServlet {
             Date fechaPars = formato.parse(fecha);
             try{
                 Usuarios u = new Usuarios(nombre, apellido, fechaPars, contra, rol,correo);
+                usuariosC.create(u);
                 response.sendRedirect("inicio.html");
             }catch(Exception e){
                 response.sendRedirect("registrarse.html");
