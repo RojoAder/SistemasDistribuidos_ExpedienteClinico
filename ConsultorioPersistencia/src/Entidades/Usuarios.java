@@ -59,6 +59,9 @@ public class Usuarios implements Serializable {
     @Basic(optional = false)
     @Column(name = "rol")
     private String rol;
+    @Basic(optional = false)
+    @Column(name = "correo")
+    private String correo;
 
     public Usuarios() {
     }
@@ -67,15 +70,26 @@ public class Usuarios implements Serializable {
         this.idusuarios = idusuarios;
     }
 
-    public Usuarios(Integer idusuarios, String nombres, String apellidos, Date fechaNacimiento, String contrasena, String rol) {
+    public Usuarios(Integer idusuarios, String nombres, String apellidos, Date fechaNacimiento, String contrasena, String rol,String correo) {
         this.idusuarios = idusuarios;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.fechaNacimiento = fechaNacimiento;
         this.contrasena = contrasena;
         this.rol = rol;
+        this.correo=correo;
     }
 
+    public Usuarios(String nombres, String apellidos, Date fechaNacimiento, String contrasena, String rol,String correo) {
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.fechaNacimiento = fechaNacimiento;
+        this.contrasena = contrasena;
+        this.rol = rol;
+        this.correo = correo;
+    }
+
+    
     public Integer getIdusuarios() {
         return idusuarios;
     }
