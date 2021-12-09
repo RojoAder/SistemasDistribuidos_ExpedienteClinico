@@ -13,10 +13,6 @@
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <meta name="author" content="Videojuegos & Desarrollo">
-        <meta name="description" content="Muestra de un formulario de acceso en HTML y CSS">
-        <meta name="keywords" content="Formulario Acceso, Formulario de LogIn">
-        
         <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet"> 
         <link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
         
@@ -26,10 +22,6 @@
         <style type="text/css">
 
         </style>
-
-        <script type="text/javascript">
-
-        </script>
     </head>
     <body>
         <div id="contenedor">
@@ -38,7 +30,7 @@
                     <div class="titulo">
                         Bienvenido al Login
                     </div>
-                    <form id="loginform"> 
+                    <form id="loginform" action="consultarUsuario" method="post"> 
                         <input type="text" name="correo" placeholder="Correo" required>
                         <input type="password" placeholder="Contraseña" name="password" required>   
                         <button type="submit" title="Ingresar" name="Ingresar">Login</button>

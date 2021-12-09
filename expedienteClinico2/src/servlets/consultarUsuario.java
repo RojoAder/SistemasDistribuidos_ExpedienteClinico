@@ -5,30 +5,25 @@
  */
 package servlets;
 
-import Entidades.Usuarios;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import DAO.DAOUsuarios;
+import Entidades.Usuarios;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpSession;
-import Entidades.Usuarios;
 
 /**
  *
- * @author Armando
+ * @author Roberto
  */
-@WebServlet(name = "registrarUsuario", urlPatterns = {"/registrarUsuario"})
-public class registrarUsuario extends HttpServlet {
+@WebServlet(name = "consultarUsuario", urlPatterns = {"/consultarUsuario"})
+public class consultarUsuario extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,37 +33,35 @@ public class registrarUsuario extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
-     * @throws java.text.ParseException
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ParseException {
-
-        DAOUsuarios dao = new DAOUsuarios();
+            throws ServletException, IOException {
 
         HttpSession session = request.getSession();
         RequestDispatcher rd;
 
-//            RequestDispatcher rd;
-        String nombre = (String) request.getParameter("nombres");
-        String apellido = (String) request.getParameter("apellidos");
+        DAOUsuarios dao = new DAOUsuarios();
+
         String correo = (String) request.getParameter("correo");
-        String fecha = (String) request.getParameter("fechaN");
-        String rol = (String) request.getParameter("rol");
-        String contra = (String) request.getParameter("password");
+        String contrasenia = (String) request.getParameter("password");
 
-        SimpleDateFormat formato = new SimpleDateFormat("dd/mm/yyyy");
-        Date fechaPars = formato.parse(fecha);
+        ArrayList<Usuarios> usuarios = dao.buscarTodas();
 
-        Usuarios usuario = new Usuarios(nombre, apellido, fechaPars, contra, rol, correo);
+        Usuarios usuarioCorrecto = null;
 
-        rd = request.getRequestDispatcher("index.jsp");
-        try {
+        for (int i = 0; i < usuarios.size(); i++) {
+            if (usuarios.get(i).getCorreo().equals(correo) && usuarios.get(i).getContrasena().equals(contrasenia)) {
+                usuarioCorrecto = usuarios.get(i);
+                break;
+            }
 
-            dao.agregar(usuario);
-            response.sendRedirect("index.jsp");
-        } catch (Exception e) {
-            response.sendRedirect("registrarse.jsp");
         }
+        
+        session.setAttribute("usuario", usuarioCorrecto);
+        
+        rd = request.getRequestDispatcher("inicio.jsp");
+        
+        rd.forward(request, response);
 
     }
 
@@ -84,11 +77,7 @@ public class registrarUsuario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ParseException ex) {
-            Logger.getLogger(registrarUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -102,11 +91,7 @@ public class registrarUsuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ParseException ex) {
-            Logger.getLogger(registrarUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

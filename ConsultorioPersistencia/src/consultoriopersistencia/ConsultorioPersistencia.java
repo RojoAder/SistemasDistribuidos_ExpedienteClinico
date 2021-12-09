@@ -5,6 +5,8 @@
  */
 package consultoriopersistencia;
 
+import Controladores.UsuariosJpaController;
+
 /**
  *
  * @author Armando
@@ -15,7 +17,9 @@ public class ConsultorioPersistencia {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        UsuariosJpaController usuariosC = new UsuariosJpaController();
+        
+        usuariosC.create(new Usuarios);
     }
     
 }

@@ -13,10 +13,6 @@
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <meta name="author" content="Videojuegos & Desarrollo">
-        <meta name="description" content="Muestra de un formulario de acceso en HTML y CSS">
-        <meta name="keywords" content="Formulario Acceso, Formulario de LogIn">
-        
         <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet"> 
         <link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
         
@@ -27,9 +23,6 @@
             
         </style>
         
-        <script type="text/javascript">     
-            
-        </script>
     </head>
     <body>
          
@@ -39,16 +32,16 @@
                     <div class="titulo">
                         Bienvenido a Registrarse
                     </div>
-                    <form enctype="text/plain" id="loginform" action="registrarUsuario" method="post">
-                        <input type="text" name="nombres" placeholder="Nombres" required>
-                        <input type="text" placeholder="Apellidos" name="apellidos" required> 
-                        <input type="text" name="correo" placeholder="Correo" required>
-                        <input type="date" id="fechaN"  name="fechaFin" required>
-                        <select name="rol">
+                    <form id="loginform" action="registrarUsuario" method="post">
+                        <input type="text" id="nombresId" name="nombres" placeholder="Nombres" required>
+                        <input type="text" id="apellidosId" placeholder="Apellidos" name="apellidos" required> 
+                        <input type="text" id="correoId" name="correo" placeholder="Correo" required>
+                        <input type="date" id="fechaNId"  name="fechaFin" required>
+                        <select id="rolId" name="rol">
                             <option value="paciente">Paciente</option>
                             <option value="paciente">Doctor</option>  
                         </select>
-                        <input type="password" placeholder="Contraseña" name="password" required> 
+                        <input type="password" placeholder="Contraseña" name="password" id="passwordId" required> 
                         <input type="text" name="confirpass" placeholder="Confirmar contraseña" required>
                         <button type="submit" title="Ingresar" name="Ingresar">Registrarse</button>
                     </form>
